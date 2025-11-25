@@ -20,6 +20,10 @@ class Kos extends Model
         'thumbnail'
     ];
 
+    protected $casts = [
+        'facilities' => 'array',
+    ];
+
     // Relasi ke User (pengelola)
     public function manager()
     {
