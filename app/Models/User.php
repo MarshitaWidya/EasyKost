@@ -40,6 +40,16 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    // Relasi ke Bookings (untuk penyewa)
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+    // Relasi ke Kos (untuk pengelola)
+    public function kos()
+    {
+        return $this->hasMany(Kos::class, 'manager_id');
+    }
 }
